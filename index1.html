@@ -17,7 +17,7 @@ async function setSrc()
 		{
 		  VideoID = VideoID.split('watch?v=').pop().split('&')[0];
 		}
-		var url = 'https://www.youtube.com/embed/' + VideoID +'?&autoplay=1&mute=1';
+		var url = 'https://www.youtube.com/embed/' + VideoID;
 		document.getElementById('player').src = url;
 		//console.log(url);
 		//https://youtu.be/szvt1vD0Uug
@@ -27,7 +27,7 @@ async function setSrc()
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <center>
-<iframe id="player" width="400" height="400" src ="" frameborder="0"  allow="autoplay; encrypted-media" allowfullscreen>
+<iframe id="player" width="400" height="400" src ="" frameborder="0"  allow="encrypted-media" allowfullscreen>
 </iframe>
 <br />
 <br />
