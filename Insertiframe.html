@@ -1,0 +1,47 @@
+<html>
+<body>
+<script type="text/javascript">
+async function setSrc()
+	{
+		// var VideoID = document.getElementById("txtText").value;
+		var VideoID = await navigator.clipboard.readText();
+		if (VideoID.includes('youtu.be'))
+		{
+		VideoID = VideoID.slice(-11)
+		}
+		if (VideoID.includes('watch%3Fv%3D'))
+		{
+		  VideoID = VideoID.split('watch%3Fv%3D').pop().split('&')[0];
+		}
+		else if(VideoID.includes('watch?v='))
+		{
+		  VideoID = VideoID.split('watch?v=').pop().split('&')[0];
+		}
+		var url = 'https://www.youtube.com/embed/' + VideoID +'?&autoplay=1&mute=1';
+		//document.getElementById('player').src = url;
+		console.log(url);
+		//https://youtu.be/szvt1vD0Uug
+		//https://m.youtube.com/watch%3Fv%3Dszvt1vD0Uug
+		//https://m.youtube.com/watch%3Fv%3Dszvt1vD0Uug
+		
+		const iframe = document.createElement("iframe");
+		//iframe.style.display = "none";		
+		iframe.width="400";
+		iframe.height="400";
+		iframe.frameborder="0";
+		iframe.allow="autoplay; encrypted-media";
+		iframe.src = url;
+		iframe.setAttribute('allowFullScreen', '');
+		iframe.setAttribute('align','center');
+		document.body.prepend(iframe);
+	}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<center>
+<!-- <iframe id="player" width="400" height="400" src ="" frameborder="0"  allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+<br />
+<br />
+<!-- <input type="text" id="txtText" size="20" maxlength="1000" /> -->
+<input type="button" value="Play" width="100" height="100" onclick="setSrc();"/></center>
+</body>
+</html>
